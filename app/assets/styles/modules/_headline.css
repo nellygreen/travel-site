@@ -43,5 +43,12 @@
 		margin-bottom: 1.6em;
 	}
 	
+	&--no-margin {
+		margin-top: 1rem;
+		@mixin atLarge {
+			margin-top: -8px;
+		} 
+	}
+	
 	
 }
