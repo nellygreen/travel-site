@@ -1,1 +1,6 @@
-alert ("Yo 123 dude!!!");
+import MobileMenu from './modules/MobileMenu';
+
+var mobileMenu = new MobileMenu();
+
+
+

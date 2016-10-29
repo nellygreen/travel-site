@@ -4,7 +4,6 @@ module.exports = {
 		path: "./app/temp/scripts",
 		 filename: "App.js"
 	},
-	
 	module: {
 		  loaders: [
 		   { 
@@ -16,6 +15,5 @@ module.exports = {
 		   exclude: /node_modules/
 		  }
 		]
-	}	
-	
+	}		
 }
