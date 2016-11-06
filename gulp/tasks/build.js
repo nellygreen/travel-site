@@ -7,7 +7,7 @@ var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync').create();;
 
-gulp.task('deleteDistFolder', function() {
+gulp.task('deleteDistFolder',['icons'] , function() {
 	return del("./docs");
 });
 
@@ -35,6 +35,10 @@ gulp.task('optimizeImages', ['deleteDistFolder'], function() {
 	.pipe(gulp.dest("./docs/assets/images"));
 });
 
+gulp.task('useminTrigger', ['deleteDistFolder'], function() {
+	gulp.start("usemin");
+});
+
 gulp.task('usemin', ['styles', 'scripts'], function() {
 	return gulp.src("./app/index.html")
 	.pipe(usemin({
@@ -45,7 +49,7 @@ gulp.task('usemin', ['styles', 'scripts'], function() {
 });
 
 
-gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages','usemin']);
+gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages','useminTrigger']);
 
 gulp.task('previewDist', function() {
 	
